@@ -172,7 +172,7 @@ def main():
     # Configure model
     model_config = ModelConfig(
         model_type=ModelType.OPENAI,  # or ModelType.LLAMA
-        model_name="gpt-4",  # or "meta-llama/Llama-2-70b-chat-hf"
+        model_name="gpt-4o-mini",  # or "meta-llama/Llama-2-70b-chat-hf"
         openai_api_key=creds["OPENAI_API_KEY"],
         openai_org_id=creds["OPENAI_ORG_ID"],
         hf_token=creds["HF_TOKEN"]
@@ -182,7 +182,7 @@ def main():
     
     # Process file
     input_txt = "sampleOutputs/Causes-of-the-War-of-1812_.txt"
-    output_pkl = "sampleOutputs/transcript.pkl"
+    output_pkl = "sampleV1Transcripts/Causes-of-the-War-of-1812_.pkl"
     
     success = writer.process_file(input_txt, output_pkl)
     if success:
