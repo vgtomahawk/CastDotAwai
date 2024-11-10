@@ -131,8 +131,8 @@ sys.exit()
 
 import pickle
 
-with open('./resources/podcast_ready_data.pkl', 'rb') as file:
-    PODCAST_TEXT = pickle.load(file)
+#with open('./resources/podcast_ready_data.pkl', 'rb') as file:
+#    PODCAST_TEXT = pickle.load(file)
 
 
 # Let's define load in the bark model and set it's hyper-parameters for discussions
