@@ -12,5 +12,6 @@ tqdm>=4.66.0
 # Optional but recommended from Notebook Llama
 jupyter>=1.0.0
 ipykernel>=6.0.0
-
+openai==1.54.3
+pydub==0.25.1
 
