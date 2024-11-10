@@ -1,4 +1,4 @@
 elevenlabs==1.12.1
-transformers==4.45.0
+transformers==4.43.3
 protobuf==5.28.3
 
