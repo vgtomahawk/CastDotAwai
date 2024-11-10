@@ -70,7 +70,7 @@ audio = model_client.generate(
 )
 play(audio)
 
-sys.exit()
+#sys.exit()
 
 
 # #### Bark Model
@@ -84,33 +84,41 @@ sys.exit()
 # In[9]:
 
 
-voice_preset = "v2/en_speaker_6"
-sampling_rate = 24000
+#voice_preset = "v2/en_speaker_6"
+#sampling_rate = 24000
 
 
 # In[8]:
 
 
-device = "cuda:7"
+#device = "cuda:7"
 
-processor = AutoProcessor.from_pretrained("suno/bark")
+#processor = AutoProcessor.from_pretrained("suno/bark")
 
 #model =  model.to_bettertransformer()
 #model = BarkModel.from_pretrained("suno/bark", torch_dtype=torch.float16, attn_implementation="flash_attention_2").to(device)
-model = BarkModel.from_pretrained("suno/bark", torch_dtype=torch.float16).to(device)#.to_bettertransformer()
-
+#model = BarkModel.from_pretrained("suno/bark", torch_dtype=torch.float16).to(device)#.to_bettertransformer()
+model_client_bark_replacement = ElevenLabs(api_key="sk_c8ad69dda6d2c161800317563a65af4b656b711b8f11501a")
+ 
 
 # In[11]:
 
 
-text_prompt = """
-Exactly! [sigh] And the distillation part is where you take a LARGE-model,and compress-it down into a smaller, more efficient model that can run on devices with limited resources.
-"""
-inputs = processor(text_prompt, voice_preset=voice_preset).to(device)
+text_prompt_bark_replacement = """Exactly! [sigh] And the distillation part is where you take a LARGE-model,and compress-it down into a smaller, more efficient model that can run on devices with limited resources."""
 
-speech_output = model.generate(**inputs, temperature = 0.9, semantic_temperature = 0.8)
-Audio(speech_output[0].cpu().numpy(), rate=sampling_rate)
+#inputs = processor(text_prompt, voice_preset=voice_preset).to(device)
+#speech_output = model.generate(**inputs, temperature = 0.9, semantic_temperature = 0.8)
+#Audio(speech_output[0].cpu().numpy(), rate=sampling_rate)
 
+
+audio_bark_replacement = model_client_bark_replacement.generate(
+  text=text_prompt_bark_replacement,
+  voice="Brian",
+  model="eleven_multilingual_v2"
+)
+play(audio_bark_replacement)
+
+sys.exit()
 
 # ## Bringing it together: Making the Podcast
 # 
